@@ -50,6 +50,8 @@ RUN mkdir -p /var/log/nginx && \
     ln -s /usr/local/nginx/nginx /usr/local/bin && \
     mv /usr/local/bin/entrypoint.sh /usr/local/bin/fpm-entrypoint.sh
 
+COPY ./php.conf /etc/nginx/sites-enabled/conf.d/php.conf
+
 COPY ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
