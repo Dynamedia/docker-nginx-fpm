@@ -22,7 +22,7 @@ COPY --from=nginx /MMDB_LICENCE /MMDB_LICENCE
 
 COPY ./php.conf /etc/nginx/sites-enabled/conf.d/php.conf
 
-RUN apt update && \
+RUN apt-get update && \
     apt-get install --no-install-recommends --no-install-suggests -y \
         ca-certificates     \
         vim                 \
@@ -42,7 +42,6 @@ RUN apt update && \
     ldconfig && \
     mkdir -p /var/log/nginx && \
     mkdir -p /var/www/app && \
-    cp /usr/local/nginx/html/* /var/www/app && \
     mkdir -p /var/cache/nginx/standard_cache && \
     mkdir -p /var/cache/nginx/micro_cache && \
     mkdir -p /var/cache/nginx/ngx_pagespeed && \
