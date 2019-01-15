@@ -8,4 +8,4 @@ services:
       - .env
     restart: always
     ports:
-      - 80:80
+      - 804:80

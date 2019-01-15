@@ -36,6 +36,8 @@ RUN apt-get update && \
         libgeoip1           \
         libmaxminddb0       \
         mmdb-bin            \
+	sendmail-bin        \
+        cron                \
         supervisor && \
     apt clean && \
     rm -rf /var/lib/apt/lists/* && \

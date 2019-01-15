@@ -8,4 +8,10 @@ fpm-entrypoint.sh
 
 # Do stuff specific to the joint container
 
+# Load the user crontab file
+if [ -f /user.crontab ] ; then
+    crontab -u $USER_NAME /user.crontab
+fi
+
+
 exec "$@"
