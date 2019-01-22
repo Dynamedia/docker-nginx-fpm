@@ -1,10 +1,10 @@
 # Pull our nginx image to harvest the required assets
 
-FROM dynamedia/docker-nginx as nginx
+FROM dynamedia/docker-nginx:v1.15.8 as nginx
 
 # Use our php image as the base for this combined image as it's the more complex of the two
 
-FROM dynamedia/docker-php-fpm
+FROM dynamedia/docker-php-fpm:v7.3.1
 
 LABEL maintainer="Rob Ballantyne <rob@dynamedia.uk>"
 

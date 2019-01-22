@@ -1,7 +1,7 @@
 version: "3.4"
 
 services:
-  nginx-fpm:
+  nginx-fpm:v1.15.8_7.3.1
     build: .
     image: dynamedia/docker-nginx-fpm
     env_file:
