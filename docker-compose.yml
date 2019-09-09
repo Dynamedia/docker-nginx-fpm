@@ -3,7 +3,7 @@ version: "3.4"
 services:
   nginx-fpm:
     build: .
-    image: dynamedia/docker-nginx-fpm:v1.15.8_7.3.1
+    image: dynamedia/docker-nginx-fpm:v1.17.3_7.3.9
     env_file:
       - .env
     restart: always
