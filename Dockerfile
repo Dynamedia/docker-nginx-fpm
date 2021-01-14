@@ -1,10 +1,10 @@
 # Pull our nginx image to harvest the required assets
 
-FROM dynamedia/docker-nginx:v1.17.3 as nginx
+FROM dynamedia/docker-nginx:v1.19.6 as nginx
 
 # Use our php image as the base for this combined image as it's the more complex of the two
 
-FROM dynamedia/docker-php-fpm:v7.3.9
+FROM dynamedia/docker-php-fpm:v7.4.14
 
 LABEL maintainer="Rob Ballantyne <rob@dynamedia.uk>"
 
@@ -17,8 +17,6 @@ COPY --from=nginx /usr/local/nginx/ /usr/local/nginx/
 COPY --from=nginx /etc/nginx/ /etc/nginx/
 
 COPY --from=nginx /usr/local/bin/entrypoint.sh /usr/local/bin/nginx-entrypoint.sh
-
-COPY --from=nginx /MMDB_LICENCE /MMDB_LICENCE
 
 COPY ./php.conf /etc/nginx/sites-enabled/conf.d/php.conf
 

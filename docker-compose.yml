@@ -3,9 +3,12 @@ version: "3.4"
 services:
   nginx-fpm:
     build: .
-    image: dynamedia/docker-nginx-fpm:v1.17.3_7.3.9
+    image: dynamedia/docker-nginx-fpm:v1.19.6_7.4.14
     env_file:
       - .env
     restart: always
     ports:
-      - 804:80
+      - 80:80
+    # Get a geoIP2/GeoLite2 database file and name it geoip.mmdb - place it in this directory and uncomment below
+    #volumes:
+    #  - ./geoip.mmdb/:/etc/nginx/geoip.mmdb
