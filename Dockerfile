@@ -4,7 +4,7 @@ FROM dynamedia/docker-nginx:v1.19.6 as nginx
 
 # Use our php image as the base for this combined image as it's the more complex of the two
 
-FROM dynamedia/docker-php-fpm:v7.4.14
+FROM dynamedia/docker-php-fpm:v8.0.1
 
 LABEL maintainer="Rob Ballantyne <rob@dynamedia.uk>"
 
