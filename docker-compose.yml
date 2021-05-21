@@ -4,8 +4,11 @@ services:
   nginx-fpm:
     build: .
     image: dynamedia/docker-nginx-fpm:v1.19.6_8.0.1
-    env_file:
-      - .env
+    environment:
+      - USER_NAME=www-data
+      - GROUP_NAME=www-data
+      - USER_UID=1000
+      - GROUP_GID=1000
     restart: always
     ports:
       - 80:80
