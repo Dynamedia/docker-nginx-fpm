@@ -3,9 +3,7 @@ version: "3.4"
 services:
   nginx-fpm:
     build: .
-    image: dynamedia/docker-nginx-fpm:v1.19.6_7.4.14
-    env_file:
-      - .env
+    image: dynamedia/docker-nginx-fpm:v1.19.8_7.4.14
     restart: always
     ports:
       - 80:80

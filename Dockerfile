@@ -1,6 +1,6 @@
 # Pull our nginx image to harvest the required assets
 
-FROM dynamedia/docker-nginx:v1.19.6 as nginx
+FROM dynamedia/docker-nginx:v1.19.8 as nginx
 
 # Use our php image as the base for this combined image as it's the more complex of the two
 
