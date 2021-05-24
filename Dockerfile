@@ -1,10 +1,11 @@
+
 # Pull our nginx image to harvest the required assets
 
-FROM dynamedia/docker-nginx:v1.19.8 as nginx
+FROM dynamedia/docker-nginx:v1.20.0 as nginx
 
 # Use our php image as the base for this combined image as it's the more complex of the two
 
-FROM dynamedia/docker-php-fpm:v7.4.14
+FROM dynamedia/docker-php-fpm:v7.4.x
 
 LABEL maintainer="Rob Ballantyne <rob@dynamedia.uk>"
 
@@ -49,6 +50,12 @@ RUN apt-get update && \
     mkdir -p /var/log/supervisor && \
     ln -s /usr/local/nginx/nginx /usr/local/bin && \
     mv /usr/local/bin/entrypoint.sh /usr/local/bin/fpm-entrypoint.sh
+
+COPY ./config/php/default/www.conf /usr/local/etc/php-fpm.d/www.conf
+COPY ./config/php/default/php.ini /usr/local/etc/php/php.ini
+
+COPY ./config/nginx/default/nginx.conf /etc/nginx/nginx.conf
+COPY ./config/nginx/default/sites-enabled /etc/nginx/sites-enabled
 
 COPY ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
