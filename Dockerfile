@@ -19,8 +19,6 @@ COPY --from=nginx /etc/nginx/ /etc/nginx/
 
 COPY --from=nginx /usr/local/bin/entrypoint.sh /usr/local/bin/nginx-entrypoint.sh
 
-COPY ./php.conf /etc/nginx/sites-enabled/conf.d/php.conf
-
 RUN apt-get update && \
     apt-get install --no-install-recommends --no-install-suggests -y \
         ca-certificates     \
@@ -57,7 +55,7 @@ COPY ./config/php/default/php.ini /usr/local/etc/php/php.ini
 COPY ./config/nginx/default/nginx.conf /etc/nginx/nginx.conf
 COPY ./config/nginx/default/sites-enabled /etc/nginx/sites-enabled
 
-COPY ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY ./config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
 
