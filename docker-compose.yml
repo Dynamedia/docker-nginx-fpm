@@ -3,7 +3,7 @@ version: "3.4"
 services:
   nginx-fpm:
     build: .
-    image: dynamedia/docker-nginx-fpm:v1.19.6_8.0.1
+    image: dynamedia/docker-nginx-fpm:v1.20.0_8.0.x
     environment:
       - USER_NAME=www-data
       - GROUP_NAME=www-data
